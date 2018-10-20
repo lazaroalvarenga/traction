@@ -1,13 +1,15 @@
-export const defaultTheme = {
-  fontSizes: {
-    small: '12px',
-    large: '36px'
+const Theme = {
+  fontSize: {
+    small: "12px",
+    large: "36px"
   },
 
-  colors: {
-    white: '#FFFFFF',
-    black: '#323232',
-    blue: '#07c',
-    red: '#e10'
+  color: {
+    white: "#FFFFFF",
+    black: "#12252B",
+    primary: "#EB2A2C",
+    secondary: "#E8E4E1"
   }
 };
+
+export default Theme;

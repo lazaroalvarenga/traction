@@ -1,28 +1,60 @@
 {
-  "name": "my-react-physical",
+  "name": "Traction",
   "version": "0.1.0",
-  "description": "Minimal Boilerplate using an atomic design approach in the react",
+  "description": "Minimal Boilerplate using an atomic design approach in the react with styled-components, react-router and mobx",
   "main": "index.js",
   "author": "Lazaro Alvarenga <lazaroalvarenga@email.com>",
   "license": "MIT",
   "scripts": {
+    "format": "prettier --write \"./src/**/*.js\"",
     "start": "parcel src/index.pug",
-    "build": "parcel build src/index.pug --out-dir build --public-url ./ --no-cache"
+    "build": "parcel build src/index.pug --out-dir build --public-url ./ --no-cache",
+    "lint": "npm run format && eslint \"./src/**/*.js\" --ignore-pattern node_modules/ --fix"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "ghooks": "^2.0.4",
+    "history": "^4.7.2",
     "offline-plugin": "^5.0.5",
     "parcel": "1.10.3",
     "parcel-bundler": "^1.10.3",
+    "parcel-plugin-sw-precache": "^1.0.1",
+    "prettier": "^1.14.3",
     "pug": "^2.0.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "styled-components": "^4.0.0",
+    "styled-normalize": "^8.0.2",
     "styled-system": "^3.1.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "autoprefixer": "^9.2.1"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  },
+  "sw-precache": {
+    "maximumFileSizeToCacheInBytes": 10485760
+  }
 }

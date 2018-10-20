@@ -5,10 +5,7 @@ import App from "./App";
 
 const ROOT = document.getElementById("root");
 
-ReactDOM.render(
-  <App />,
-  ROOT
-);
+ReactDOM.render(<App />, ROOT);
 
 if (module.hot) {
   module.hot.accept(["./components/App"], () => {});
